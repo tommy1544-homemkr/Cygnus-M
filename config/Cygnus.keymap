@@ -4,6 +4,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+// Cygnus.keymap is shared by both halves' builds, but only Cygnus_R.overlay
+// (trackball side) otherwise pulls in zip_temp_layer; include it here too so
+// mkp_input_listener below resolves on the Cygnus_L build as well.
+#include <input/processors.dtsi>
 
 #define MOUSE 4
 #define SCROLL 5
