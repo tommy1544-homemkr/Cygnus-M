@@ -14,6 +14,15 @@
     quick-tap-ms = <0>;
 };
 
+// Reset the auto-mouse-layer timeout whenever a mouse button is clicked,
+// so the layer doesn't expire mid-click/drag while the base timeout set
+// on trackball_listener (Cygnus_R.overlay) is left intentionally long.
+// (Must live here, not in the .overlay: mkp_input_listener is only
+// defined once behaviors.dtsi is included, which happens in this file.)
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer MOUSE 10000>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
